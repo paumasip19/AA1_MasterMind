@@ -12,6 +12,7 @@
 		EF11080E25F7EDD000A0CC32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF11080D25F7EDD000A0CC32 /* Assets.xcassets */; };
 		EF11081125F7EDD000A0CC32 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF11081025F7EDD000A0CC32 /* Preview Assets.xcassets */; };
 		EF11081A25F7EF5500A0CC32 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF11081925F7EF5500A0CC32 /* ViewModel.swift */; };
+		EF2C6D4D25F800A600B1C248 /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2C6D4C25F800A600B1C248 /* RowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		EF11081025F7EDD000A0CC32 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EF11081225F7EDD000A0CC32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF11081925F7EF5500A0CC32 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		EF2C6D4C25F800A600B1C248 /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				EF11080925F7EDCF00A0CC32 /* MasterMindApp.swift */,
-				EF11080B25F7EDCF00A0CC32 /* ContentView.swift */,
+				EF2C6D4B25F8007D00B1C248 /* Views */,
 				EF11081925F7EF5500A0CC32 /* ViewModel.swift */,
 				EF11081C25F7EF6500A0CC32 /* Models */,
 				EF11080D25F7EDD000A0CC32 /* Assets.xcassets */,
@@ -78,6 +80,15 @@
 			children = (
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		EF2C6D4B25F8007D00B1C248 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EF11080B25F7EDCF00A0CC32 /* ContentView.swift */,
+				EF2C6D4C25F800A600B1C248 /* RowView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +163,7 @@
 				EF11080C25F7EDCF00A0CC32 /* ContentView.swift in Sources */,
 				EF11081A25F7EF5500A0CC32 /* ViewModel.swift in Sources */,
 				EF11080A25F7EDCF00A0CC32 /* MasterMindApp.swift in Sources */,
+				EF2C6D4D25F800A600B1C248 /* RowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
