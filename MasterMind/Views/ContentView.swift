@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Row: Hashable {
     let number: Int
-    let color: [Color]
+    var color: [Color]
 }
 
 struct ContentView: View {
@@ -39,10 +39,6 @@ struct ContentView: View {
 
 extension ContentView {
     func doNothing() {}
-    
-    func changeColor() {
-        
-    }
 }
 
 struct ContentView_Previews: PreviewProvider {

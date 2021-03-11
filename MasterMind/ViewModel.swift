@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class ViewModel: ObservableObject {
     @Published var combinations: [Row]
@@ -14,4 +15,7 @@ class ViewModel: ObservableObject {
         self.combinations = combinations
     }
     
+    func ChangeColor(i: Int, j: Int, col: Color) {
+        combinations[i].color[j] = col
+    }
 }
