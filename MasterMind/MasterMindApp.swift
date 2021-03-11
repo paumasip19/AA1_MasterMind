@@ -11,17 +11,17 @@ import SwiftUI
 struct MasterMindApp: App {
     var body: some Scene {
         WindowGroup {
-            let rowList: [row] = [
-                row(number: 1, color: [.yellow, .yellow, .blue, .red]),
-                row(number: 2, color: [.blue, .blue, .red, .blue]),
-                row(number: 3, color: [.blue, .blue, .blue, .blue]),
-                row(number: 4, color: [.blue, .blue, .blue, .blue]),
-                row(number: 5, color: [.blue, .blue, .blue, .blue]),
-                row(number: 6, color: [.blue, .blue, .blue, .blue]),
-                row(number: 7, color: [.blue, .blue, .blue, .blue]),
-                row(number: 8, color: [.blue, .blue, .blue, .blue])
+            let rowList: [Row] = [
+                Row(number: 1, color: [.white, .white, .white, .white]),
+                Row(number: 2, color: [.white, .white, .white, .white]),
+                Row(number: 3, color: [.white, .white, .white, .white]),
+                Row(number: 4, color: [.white, .white, .white, .white]),
+                Row(number: 5, color: [.white, .white, .white, .white]),
+                Row(number: 6, color: [.white, .white, .white, .white]),
+                Row(number: 7, color: [.white, .white, .white, .white]),
+                Row(number: 8, color: [.white, .white, .white, .white])
              ]
-            ContentView(rowList: rowList)
+            ContentView(viewModel: ViewModel(combinations: rowList))
         }
     }
 }

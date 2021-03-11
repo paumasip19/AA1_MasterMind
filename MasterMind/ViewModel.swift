@@ -7,6 +7,11 @@
 
 import Foundation
 
-class ViewModel {
+class ViewModel: ObservableObject {
+    @Published var combinations: [Row]
+    
+    init(combinations: [Row]){
+        self.combinations = combinations
+    }
     
 }

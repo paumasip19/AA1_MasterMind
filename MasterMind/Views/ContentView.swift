@@ -7,13 +7,14 @@
 
 import SwiftUI
 
-struct row: Hashable {
+struct Row: Hashable {
     let number: Int
     let color: [Color]
 }
 
 struct ContentView: View {
-    var rowList: [row]
+    @ObservedObject var viewModel: ViewModel
+    
     
     var body: some View {
         VStack {
@@ -23,42 +24,39 @@ struct ContentView: View {
                 .padding()
                 .background(Color.orange)
             VStack {
-                ForEach(rowList, id: \.self) { row in
+                ForEach(viewModel.combinations, id: \.self) { row in
                     RowView(firstColor: row.color[0],
                             secondColor: row.color[1],
                             thirdColor: row.color[2],
                             fourthColor: row.color[3])
                 }
             }
-            HStack {
-                Text("Tried 2 times")
-                    .font(.title2)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.orange)
-                Button("Start", action: doNothing)
-                    .padding()
-            }
+            Button("Comprova", action: doNothing)
+                .padding()
         }
     }
 }
 
 extension ContentView {
     func doNothing() {}
+    
+    func changeColor() {
+        
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let rowList: [row] = [
-            row(number: 1, color: [.yellow, .yellow, .blue, .red]),
-            row(number: 2, color: [.blue, .blue, .red, .blue]),
-            row(number: 3, color: [.blue, .blue, .blue, .blue]),
-            row(number: 4, color: [.blue, .blue, .blue, .blue]),
-            row(number: 5, color: [.blue, .blue, .blue, .blue]),
-            row(number: 6, color: [.blue, .blue, .blue, .blue]),
-            row(number: 7, color: [.blue, .blue, .blue, .blue]),
-            row(number: 8, color: [.blue, .blue, .blue, .blue])
+        let rowList: [Row] = [
+            Row(number: 1, color: [.white, .white, .white, .white]),
+            Row(number: 2, color: [.white, .white, .white, .white]),
+            Row(number: 3, color: [.white, .white, .white, .white]),
+            Row(number: 4, color: [.white, .white, .white, .white]),
+            Row(number: 5, color: [.white, .white, .white, .white]),
+            Row(number: 6, color: [.white, .white, .white, .white]),
+            Row(number: 7, color: [.white, .white, .white, .white]),
+            Row(number: 8, color: [.white, .white, .white, .white])
          ]
-        ContentView(rowList: rowList)
+        ContentView(viewModel: ViewModel(combinations: rowList))
     }
 }
