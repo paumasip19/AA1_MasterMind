@@ -7,19 +7,13 @@
 
 import SwiftUI
 
-struct row {
+struct row: Hashable {
     let number: Int
     let color: [Color]
 }
 
 struct ContentView: View {
-    var rowList: [row] = [
-        row(number: 1, color: [.blue, .blue, .blue, .blue]),
-        row(number: 2, color: [.blue, .blue, .blue, .blue]),
-        row(number: 3, color: [.blue, .blue, .blue, .blue]),
-        row(number: 4, color: [.blue, .blue, .blue, .blue]),
-        row(number: 5, color: [.blue, .blue, .blue, .blue])
-     ]
+    var rowList: [row]
     
     var body: some View {
         VStack {
@@ -29,8 +23,11 @@ struct ContentView: View {
                 .padding()
                 .background(Color.orange)
             VStack {
-                ForEach(rowList, id:\.number) { row in
-                    
+                ForEach(rowList, id: \.self) { row in
+                    RowView(firstColor: row.color[0],
+                            secondColor: row.color[1],
+                            thirdColor: row.color[2],
+                            fourthColor: row.color[3])
                 }
             }
             HStack {
@@ -52,6 +49,13 @@ extension ContentView {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        let rowList: [row] = [
+            row(number: 1, color: [.yellow, .yellow, .blue, .red]),
+            row(number: 2, color: [.blue, .blue, .red, .blue]),
+            row(number: 3, color: [.blue, .blue, .blue, .blue]),
+            row(number: 4, color: [.blue, .blue, .blue, .blue]),
+            row(number: 5, color: [.blue, .blue, .blue, .blue])
+         ]
+        ContentView(rowList: rowList)
     }
 }

@@ -18,6 +18,30 @@ struct RowView: View {
     
     var body: some View {
         HStack {
+            VStack{
+                HStack {
+                    Circle()
+                        .fill(Color.white)
+                        .frame(width: self.width/2, height: self.height/2)
+                        .shadow(color: .black, radius: 10, x: 0.0, y: 0.0)
+
+                    Circle()
+                        .fill(Color.white)
+                        .frame(width: self.width/2, height: self.height/2)
+                        .shadow(color: .black, radius: 10, x: 0.0, y: 0.0)
+                }
+                HStack {
+                    Circle()
+                        .fill(Color.white)
+                        .frame(width: self.width/2, height: self.height/2)
+                        .shadow(color: .black, radius: 10, x: 0.0, y: 0.0)
+                    Circle()
+                        .fill(Color.white)
+                        .frame(width: self.width/2, height: self.height/2)
+                        .shadow(color: .black, radius: 10, x: 0.0, y: 0.0)
+
+                }
+            }
             Circle()
                 .fill(firstColor)
                 .frame(width: self.width, height: self.height)
@@ -29,12 +53,12 @@ struct RowView: View {
                 .shadow(color: .black, radius: 10, x: 0.0, y: 0.0)
                 .padding(5)
             Circle()
-                .fill(firstColor)
+                .fill(thirdColor)
                 .frame(width: self.width, height: self.height)
                 .shadow(color: .black, radius: 10, x: 0.0, y: 0.0)
                 .padding(5)
             Circle()
-                .fill(firstColor)
+                .fill(fourthColor)
                 .frame(width: self.width, height: self.height)
                 .shadow(color: .black, radius: 10, x: 0.0, y: 0.0)
                 .padding(5)
