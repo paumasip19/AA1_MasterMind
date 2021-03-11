@@ -16,7 +16,10 @@ struct MasterMindApp: App {
                 row(number: 2, color: [.blue, .blue, .red, .blue]),
                 row(number: 3, color: [.blue, .blue, .blue, .blue]),
                 row(number: 4, color: [.blue, .blue, .blue, .blue]),
-                row(number: 5, color: [.blue, .blue, .blue, .blue])
+                row(number: 5, color: [.blue, .blue, .blue, .blue]),
+                row(number: 6, color: [.blue, .blue, .blue, .blue]),
+                row(number: 7, color: [.blue, .blue, .blue, .blue]),
+                row(number: 8, color: [.blue, .blue, .blue, .blue])
              ]
             ContentView(rowList: rowList)
         }
