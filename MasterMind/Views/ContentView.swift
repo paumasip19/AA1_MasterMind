@@ -15,6 +15,7 @@ struct Row: Hashable {
 struct ContentView: View {
     @ObservedObject var viewModel: ViewModel
     
+    var count: Int = 0
     
     var body: some View {
         VStack {
@@ -28,10 +29,12 @@ struct ContentView: View {
                     RowView(firstColor: row.color[0],
                             secondColor: row.color[1],
                             thirdColor: row.color[2],
-                            fourthColor: row.color[3])
+                            fourthColor: row.color[3],
+                            myRowID: row.number,
+                            viewModel: viewModel)
                 }
             }
-            Button("Comprova", action: doNothing)
+            Button("Comprova", action: viewModel.checkTry )
                 .padding()
         }
     }

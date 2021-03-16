@@ -13,12 +13,21 @@ struct ColorButton: View {
     private let width: CGFloat = 50.0
     private let height: CGFloat = 50.0
     
+    
+    var count: Int = 0
+    
+    let buttonID: Int
+    let rowID: Int
+
     let viewModel: ViewModel
     
     var body: some View {
-        Button("", action: { viewModel.ChangeColor() })
+        Button("    ", action: {
+                viewModel.ChangeColor(i: rowID, j: buttonID)
+            
+        })
             .frame(width: self.width, height: self.height)
-            .background(self.color)
+            .background(color)
             .foregroundColor(.black)
             .cornerRadius(30)
             .shadow(color: .black, radius: 10, x: 0.0, y: 0.0)
@@ -35,6 +44,10 @@ struct RowView: View {
     private let width: CGFloat = 50.0
     private let height: CGFloat = 50.0
     
+    let myRowID: Int
+    
+    let viewModel: ViewModel
+    
     public func action() {
         print("Hola")
     }
@@ -47,7 +60,7 @@ struct RowView: View {
                         .fill(Color.white)
                         .frame(width: self.width/2, height: self.height/2)
                         .shadow(color: .black, radius: 10, x: 0.0, y: 0.0)
-
+                    
                     Circle()
                         .fill(Color.white)
                         .frame(width: self.width/2, height: self.height/2)
@@ -65,34 +78,10 @@ struct RowView: View {
 
                 }
             }
-            Button("", action: { action() })
-                .frame(width: self.width, height: self.height)
-                .background(firstColor)
-                .foregroundColor(.black)
-                .cornerRadius(30)
-                .shadow(color: .black, radius: 10, x: 0.0, y: 0.0)
-                .padding(5)
-            Button("", action: { action() })
-                .frame(width: self.width, height: self.height)
-                .background(secondColor)
-                .foregroundColor(.black)
-                .cornerRadius(30)
-                .shadow(color: .black, radius: 10, x: 0.0, y: 0.0)
-                .padding(5)
-            Button("", action: { action() })
-                .frame(width: self.width, height: self.height)
-                .background(thirdColor)
-                .foregroundColor(.black)
-                .cornerRadius(30)
-                .shadow(color: .black, radius: 10, x: 0.0, y: 0.0)
-                .padding(5)
-            Button("", action: { action() })
-                .frame(width: self.width, height: self.height)
-                .background(fourthColor)
-                .foregroundColor(.black)
-                .cornerRadius(30)
-                .shadow(color: .black, radius: 10, x: 0.0, y: 0.0)
-                .padding(5)
+            ColorButton(color: self.firstColor, buttonID: 0, rowID: self.myRowID, viewModel: viewModel)
+            ColorButton(color: self.secondColor, buttonID: 1, rowID: self.myRowID, viewModel: viewModel)
+            ColorButton(color: self.thirdColor, buttonID: 2, rowID: self.myRowID, viewModel: viewModel)
+            ColorButton(color: self.fourthColor, buttonID: 3, rowID: self.myRowID, viewModel: viewModel)
         }
         .padding(5)
     }
@@ -100,9 +89,24 @@ struct RowView: View {
 
 struct RowView_Previews: PreviewProvider {
     static var previews: some View {
-        RowView(firstColor: .red,
-                secondColor: .green,
-                thirdColor: .blue,
-                fourthColor: .yellow)
+        let row = Row(number: 1, color: [.red, .green, .blue, .white])
+        
+        let rowList: [Row] = [
+            Row(number: 1, color: [.white, .white, .white, .white]),
+            Row(number: 2, color: [.white, .white, .white, .white]),
+            Row(number: 3, color: [.white, .white, .white, .white]),
+            Row(number: 4, color: [.white, .white, .white, .white]),
+            Row(number: 5, color: [.white, .white, .white, .white]),
+            Row(number: 6, color: [.white, .white, .white, .white]),
+            Row(number: 7, color: [.white, .white, .white, .white]),
+            Row(number: 8, color: [.white, .white, .white, .white])
+         ]
+        
+        RowView(firstColor: row.color[0],
+                secondColor: row.color[1],
+                thirdColor: row.color[2],
+                fourthColor: row.color[3],
+                myRowID: 0,
+                viewModel: ViewModel(combinations: rowList));
     }
 }
