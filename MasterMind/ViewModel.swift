@@ -17,6 +17,8 @@ class ViewModel: ObservableObject {
     
     var actualTry: Int = 0
     
+    let maxTries: Int = 8
+    
     init(combinations: [Row]){
         self.combinations = combinations
         
@@ -54,20 +56,30 @@ class ViewModel: ObservableObject {
     
     func checkTry()
     {
-        let actualComb: [Color] = combinations[actualTry].color
-        
-        if(actualComb == realCombination) {
-            
-            print("You Win!!!")
-            actualTry = -1
-        }
-        else
+        if(actualTry <= maxTries - 1)
         {
-            //Posar botons del costat
+            let actualComb: [Color] = combinations[actualTry].color
             
-            actualTry += 1
+            if(actualComb == realCombination) {
+                
+                print("You Win!!!")
+                actualTry = -1
+            }
+            else
+            {
+                if(actualTry == maxTries - 1)
+                {
+                    print("You Lost!!!")
+                }
+                else
+                {
+                    //Posar botons del costat
+                    
+                    actualTry += 1
+                    
+                }
+                
+            }
         }
-        
-        
     }
 }

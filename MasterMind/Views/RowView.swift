@@ -41,6 +41,8 @@ struct RowView: View {
     var thirdColor: Color
     var fourthColor: Color
     
+    var indicators: [Color] = [.black, .black, .black, .black]
+    
     private let width: CGFloat = 50.0
     private let height: CGFloat = 50.0
     
@@ -48,31 +50,27 @@ struct RowView: View {
     
     let viewModel: ViewModel
     
-    public func action() {
-        print("Hola")
-    }
-    
     var body: some View {
         HStack {
             VStack{
                 HStack {
                     Circle()
-                        .fill(Color.white)
+                        .fill(indicators[0])
                         .frame(width: self.width/2, height: self.height/2)
                         .shadow(color: .black, radius: 10, x: 0.0, y: 0.0)
                     
                     Circle()
-                        .fill(Color.white)
+                        .fill(indicators[1])
                         .frame(width: self.width/2, height: self.height/2)
                         .shadow(color: .black, radius: 10, x: 0.0, y: 0.0)
                 }
                 HStack {
                     Circle()
-                        .fill(Color.white)
+                        .fill(indicators[2])
                         .frame(width: self.width/2, height: self.height/2)
                         .shadow(color: .black, radius: 10, x: 0.0, y: 0.0)
                     Circle()
-                        .fill(Color.white)
+                        .fill(indicators[3])
                         .frame(width: self.width/2, height: self.height/2)
                         .shadow(color: .black, radius: 10, x: 0.0, y: 0.0)
 
