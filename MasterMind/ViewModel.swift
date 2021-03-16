@@ -19,6 +19,11 @@ class ViewModel: ObservableObject {
     
     init(combinations: [Row]){
         self.combinations = combinations
+        
+        for (index, _) in realCombination.enumerated() {
+            realCombination[index] = possibleColors[Int.random(in: 0..<4)]
+        }
+        
     }
     
     func ChangeColor(i: Int, j: Int) {
@@ -54,6 +59,7 @@ class ViewModel: ObservableObject {
         if(actualComb == realCombination) {
             
             print("You Win!!!")
+            actualTry = -1
         }
         else
         {
