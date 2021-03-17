@@ -73,10 +73,28 @@ class ViewModel: ObservableObject {
                 }
                 else
                 {
-                    //Posar botons del costat
-                    combinations[actualTry].indicators[0] = .red
-                    actualTry += 1
+                    var exact: Int = 0
+                    //combinations[actualTry].indicators[0] = .red
+                    for(index, _) in realCombination.enumerated() {
+                        if(realCombination[index] == actualComb[index])
+                        {
+                            exact += 1
+                        }
+                    }
                     
+                    var tempExact: Int = exact
+                    
+                    for(index, _) in combinations[actualTry].indicators.enumerated() {
+                        if(tempExact != 0)
+                        {
+                            combinations[actualTry].indicators[index] = .red
+                            tempExact -= 1
+                        }
+                    }
+                    
+                    
+                    
+                    actualTry += 1
                 }
                 
             }
