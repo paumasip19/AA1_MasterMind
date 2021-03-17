@@ -31,7 +31,7 @@ struct ContentView: View {
                             secondColor: row.color[1],
                             thirdColor: row.color[2],
                             fourthColor: row.color[3],
-                            indicators: <#[Color]#>,
+                            indicators: row.indicators,
                             myRowID: row.number,
                             viewModel: viewModel)
                 }

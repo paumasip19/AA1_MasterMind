@@ -74,7 +74,7 @@ class ViewModel: ObservableObject {
                 else
                 {
                     //Posar botons del costat
-                    
+                    combinations[actualTry].indicators[0] = .red
                     actualTry += 1
                     
                 }

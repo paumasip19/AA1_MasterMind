@@ -87,7 +87,7 @@ struct RowView: View {
 
 struct RowView_Previews: PreviewProvider {
     static var previews: some View {
-        let row = Row(number: 1, color: [.red, .green, .blue, .white], indicators: [.black, .black, .black, .black]))
+        let row = Row(number: 1, color: [.red, .green, .blue, .white], indicators: [.black, .black, .black, .black])
         
         let rowList: [Row] = [
             Row(number: 1, color: [.white, .white, .white, .white], indicators: [.black, .black, .black, .black]),
@@ -104,7 +104,7 @@ struct RowView_Previews: PreviewProvider {
                 secondColor: row.color[1],
                 thirdColor: row.color[2],
                 fourthColor: row.color[3],
-                indicators: [.black, .black, .black, .black]),
+                indicators: row.indicators,
                 myRowID: 0,
                 viewModel: ViewModel(combinations: rowList));
     }
