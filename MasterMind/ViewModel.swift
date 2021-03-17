@@ -74,13 +74,69 @@ class ViewModel: ObservableObject {
                 else
                 {
                     var exact: Int = 0
-                    //combinations[actualTry].indicators[0] = .red
+                    
+                    //Exact place and color
                     for(index, _) in realCombination.enumerated() {
                         if(realCombination[index] == actualComb[index])
                         {
                             exact += 1
                         }
                     }
+                    
+                    
+                    //Exact color, not place
+        
+                    var red: [Int] = [0, 0]
+                    var green: [Int] = [0, 0]
+                    var blue: [Int] = [0, 0]
+                    var black: [Int] = [0, 0]
+                    
+                    for (index, _) in actualComb.enumerated() {
+                        switch actualComb[index] {
+                            case .red:
+                                red[0] += 1
+
+                            case .green:
+                                green[0] += 1
+
+                            case .blue:
+                                blue[0] += 1
+                                
+                            case .black:
+                                black[0] += 1
+                                
+                            default:
+                                print("Error in combination")
+                        }
+                    }
+                    
+                    for (index, _) in realCombination.enumerated() {
+                        switch realCombination[index] {
+                            case .red:
+                                red[1] += 1
+
+                            case .green:
+                                green[1] += 1
+
+                            case .blue:
+                                blue[1] += 1
+                                
+                            case .black:
+                                black[1] += 1
+                                
+                            default:
+                                print("Error in combination")
+                        }
+                    }
+                    
+                    var notExact: Int = 0
+                    
+                    if(red[0] == red[1]) { notExact += red[0] }
+                    if(green[0] == green[1]) { notExact += green[0] }
+                    if(blue[0] == blue[1]) { notExact += blue[0] }
+                    if(black[0] == black[1]) { notExact += black[0] }
+                    
+                    notExact -= exact
                     
                     var tempExact: Int = exact
                     
@@ -90,10 +146,16 @@ class ViewModel: ObservableObject {
                             combinations[actualTry].indicators[index] = .red
                             tempExact -= 1
                         }
+                        else
+                        {
+                            if(notExact != 0)
+                            {
+                                combinations[actualTry].indicators[index] = .white
+                                notExact -= 1
+                            }
+                        }
                     }
-                    
-                    
-                    
+                                      
                     actualTry += 1
                 }
                 
