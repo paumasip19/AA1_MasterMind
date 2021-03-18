@@ -16,8 +16,6 @@ struct Row: Hashable {
 struct ContentView: View {
     @ObservedObject var viewModel: ViewModel
     
-    var count: Int = 0
-    
     var body: some View {
         VStack {
             Text("MasterMind")
@@ -36,14 +34,14 @@ struct ContentView: View {
                             viewModel: viewModel)
                 }
             }
-            Button("Comprova", action: viewModel.checkTry )
-                .padding()
+            HStack {
+                Button("Reseteja", action: viewModel.restartGame )
+                    .padding()
+                Button("Comprova", action: viewModel.checkTry )
+                    .padding()
+            }
         }
     }
-}
-
-extension ContentView {
-    func doNothing() {}
 }
 
 struct ContentView_Previews: PreviewProvider {
