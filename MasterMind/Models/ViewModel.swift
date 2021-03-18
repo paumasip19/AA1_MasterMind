@@ -19,7 +19,11 @@ class ViewModel: ObservableObject {
         Row(number: 4, color: [.white, .white, .white, .white], indicators: [.black, .black, .black, .black]),
         Row(number: 5, color: [.white, .white, .white, .white], indicators: [.black, .black, .black, .black]),
         Row(number: 6, color: [.white, .white, .white, .white], indicators: [.black, .black, .black, .black]),
-        Row(number: 7, color: [.white, .white, .white, .white], indicators: [.black, .black, .black, .black])
+        Row(number: 7, color: [.white, .white, .white, .white], indicators: [.black, .black, .black, .black]),
+        Row(number: 8, color: [.white, .white, .white, .white], indicators: [.black, .black, .black, .black]),
+        Row(number: 9, color: [.white, .white, .white, .white], indicators: [.black, .black, .black, .black]),
+        Row(number: 10, color: [.white, .white, .white, .white], indicators: [.black, .black, .black, .black]),
+        Row(number: 11, color: [.white, .white, .white, .white], indicators: [.black, .black, .black, .black])
      ]
     
     var realCombination: [Color] = [.white, .white, .white, .white]
@@ -27,7 +31,7 @@ class ViewModel: ObservableObject {
     let possibleColors: [Color] = [.red, .green, .blue, .black]
     
     var actualTry: Int = 0
-    let maxTries: Int = 8
+    let maxTries: Int = 12
     
     var win: Bool = false
     var loss: Bool = false

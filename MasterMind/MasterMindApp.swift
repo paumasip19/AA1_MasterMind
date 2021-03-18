@@ -19,7 +19,11 @@ struct MasterMindApp: App {
                 Row(number: 4, color: [.white, .white, .white, .white], indicators: [.black, .black, .black, .black]),
                 Row(number: 5, color: [.white, .white, .white, .white], indicators: [.black, .black, .black, .black]),
                 Row(number: 6, color: [.white, .white, .white, .white], indicators: [.black, .black, .black, .black]),
-                Row(number: 7, color: [.white, .white, .white, .white], indicators: [.black, .black, .black, .black])
+                Row(number: 7, color: [.white, .white, .white, .white], indicators: [.black, .black, .black, .black]),
+                Row(number: 8, color: [.white, .white, .white, .white], indicators: [.black, .black, .black, .black]),
+                Row(number: 9, color: [.white, .white, .white, .white], indicators: [.black, .black, .black, .black]),
+                Row(number: 10, color: [.white, .white, .white, .white], indicators: [.black, .black, .black, .black]),
+                Row(number: 11, color: [.white, .white, .white, .white], indicators: [.black, .black, .black, .black])
              ]
             ContentView(viewModel: ViewModel(combinations: rowList))
         }

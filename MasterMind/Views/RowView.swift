@@ -15,8 +15,8 @@ struct RowView: View {
     
     var indicators: [Color]
     
-    private let width: CGFloat = 50.0
-    private let height: CGFloat = 50.0
+    private let width: CGFloat = 25.0
+    private let height: CGFloat = 25.0
     
     let myRowID: Int
     
@@ -69,7 +69,11 @@ struct RowView_Previews: PreviewProvider {
             Row(number: 5, color: [.white, .white, .white, .white], indicators: [.black, .black, .black, .black]),
             Row(number: 6, color: [.white, .white, .white, .white], indicators: [.black, .black, .black, .black]),
             Row(number: 7, color: [.white, .white, .white, .white], indicators: [.black, .black, .black, .black]),
-            Row(number: 8, color: [.white, .white, .white, .white], indicators: [.black, .black, .black, .black])
+            Row(number: 8, color: [.white, .white, .white, .white], indicators: [.black, .black, .black, .black]),
+            Row(number: 9, color: [.white, .white, .white, .white], indicators: [.black, .black, .black, .black]),
+            Row(number: 10, color: [.white, .white, .white, .white], indicators: [.black, .black, .black, .black]),
+            Row(number: 11, color: [.white, .white, .white, .white], indicators: [.black, .black, .black, .black]),
+            Row(number: 12, color: [.white, .white, .white, .white], indicators: [.black, .black, .black, .black])
          ]
         
         RowView(firstColor: row.color[0],

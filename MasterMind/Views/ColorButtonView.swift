@@ -11,8 +11,8 @@ import SwiftUI
 struct ColorButton: View {
     var color: Color
     
-    private let width: CGFloat = 50.0
-    private let height: CGFloat = 50.0
+    private let width: CGFloat = 30.0
+    private let height: CGFloat = 30.0
     
     
     var count: Int = 0
