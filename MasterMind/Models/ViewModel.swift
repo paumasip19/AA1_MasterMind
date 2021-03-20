@@ -33,14 +33,14 @@ class ViewModel: ObservableObject {
     var actualTry: Int = 0
     let maxTries: Int = 12
     
-    var win: Bool = false
-    var loss: Bool = false
+    @State var win: Bool = false
+    @State var loss: Bool = false
     
     init(combinations: [Row]){
         self.combinations = combinations
         
-        win = false;
-        loss = false
+        self.win = false;
+        self.loss = false
         actualTry = 0
         
         for (index, _) in realCombination.enumerated() {
@@ -53,7 +53,7 @@ class ViewModel: ObservableObject {
     
     func ChangeColor(i: Int, j: Int) {
         
-        if(actualTry == i && win == false && loss == false) {
+        if(actualTry == i && self.win == false && self.loss == false) {
             let col: Color = combinations[i].color[j]
             
             switch col {
@@ -79,7 +79,7 @@ class ViewModel: ObservableObject {
     
     func checkTry()
     {
-        if(actualTry <= maxTries - 1 && win == false && loss == false)
+        if(actualTry <= maxTries - 1 && self.win == false && self.loss == false)
         {
             let actualComb: [Color] = combinations[actualTry].color
             
@@ -170,15 +170,17 @@ class ViewModel: ObservableObject {
             if(actualComb == realCombination) {
                 
                 print("You Win!!!")
-                win = true
+                ContentView.showPopUpWin = true
+                self.win = true
             }
             else if(actualTry == maxTries)
             {
                 print("You Lost!!!")
-                loss = true
+                ContentView.showPopUpLoss = true
+                self.loss = true
             }
             
-            if(win == false && loss == false)
+            if(self.win == false && self.loss == false)
             {
                 combinations[actualTry].color = [.red, .red, .red, .red]
             }
@@ -230,8 +232,8 @@ class ViewModel: ObservableObject {
     func restartGame() {
         self.combinations = rowList
         
-        win = false
-        loss = false
+        self.win = false
+        self.loss = false
         actualTry = 0
         
         for (index, _) in realCombination.enumerated() {
@@ -240,4 +242,7 @@ class ViewModel: ObservableObject {
         
         self.combinations[actualTry].color = [.red, .red, .red, .red]
     }
+    
+    func getWin() -> Bool { return self.win }
+    func getLoss() -> Bool { return self.loss }
 }
