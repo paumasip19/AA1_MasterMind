@@ -26,6 +26,9 @@ class ViewModel: ObservableObject {
         Row(number: 11, color: [.white, .white, .white, .white], indicators: [.black, .black, .black, .black])
      ]
     
+    @Published var showPopUpWin = false
+    @Published var showPopUpLoss = false
+    
     var realCombination: [Color] = [.white, .white, .white, .white]
     
     let possibleColors: [Color] = [.red, .green, .blue, .black]
@@ -33,8 +36,8 @@ class ViewModel: ObservableObject {
     var actualTry: Int = 0
     let maxTries: Int = 12
     
-    @State var win: Bool = false
-    @State var loss: Bool = false
+    var win: Bool = false
+    var loss: Bool = false
     
     init(combinations: [Row]){
         self.combinations = combinations
@@ -166,21 +169,10 @@ class ViewModel: ObservableObject {
             
             actualTry += 1
             
+            win = checkWin(actualComb: actualComb)
+            loss = checkLoss()
             
-            if(actualComb == realCombination) {
-                
-                print("You Win!!!")
-                ContentView.showPopUpWin = true
-                self.win = true
-            }
-            else if(actualTry == maxTries)
-            {
-                print("You Lost!!!")
-                ContentView.showPopUpLoss = true
-                self.loss = true
-            }
-            
-            if(self.win == false && self.loss == false)
+            if(actualTry < maxTries && win == false && loss == false)
             {
                 combinations[actualTry].color = [.red, .red, .red, .red]
             }
@@ -227,6 +219,28 @@ class ViewModel: ObservableObject {
         }
         
         return actIndTemp
+    }
+    
+    func checkWin(actualComb: [Color]) -> Bool
+    {
+        if(actualComb == realCombination) {
+            
+            print("You Win!!!")
+            showPopUpWin = true
+            return true
+        }
+        return false
+    }
+    
+    func checkLoss() -> Bool
+    {
+        if(actualTry == maxTries) {
+            
+            print("You Lost!!!")
+            showPopUpLoss = true
+            return true
+        }
+        return false
     }
     
     func restartGame() {

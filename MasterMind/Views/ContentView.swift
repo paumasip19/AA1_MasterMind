@@ -16,9 +16,6 @@ struct Row: Hashable {
 struct ContentView: View {
     @ObservedObject var viewModel: ViewModel
     
-    @State static public var showPopUpWin = false
-    @State static public var showPopUpLoss = false
-    
     var body: some View {
         
         ZStack
@@ -41,14 +38,13 @@ struct ContentView: View {
                     }
                 }
                 HStack {
-                    Button("Reseteja", action: viewModel.restartGame )
-                        .padding()
+                    
                     Button("Comprova", action: viewModel.checkTry )
                         .padding()
                 }
             }
             
-            if ContentView.showPopUpWin {
+            if viewModel.showPopUpWin {
                 ZStack {
                     Color.white
                     VStack {
@@ -56,9 +52,9 @@ struct ContentView: View {
                         Spacer()
                         Button(action: {
                             viewModel.restartGame()
-                            ContentView.showPopUpWin = false
+                            viewModel.showPopUpWin = false
                         }, label: {
-                            Text("Reseteja el joc")
+                            Text("Torna a jugar")
                         })
                     }.padding()
                 }
@@ -66,7 +62,7 @@ struct ContentView: View {
                 .cornerRadius(20).shadow(radius: 20)
             }
             
-            if ContentView.showPopUpLoss {
+            if viewModel.showPopUpLoss {
                 ZStack {
                     Color.white
                     VStack {
@@ -74,9 +70,9 @@ struct ContentView: View {
                         Spacer()
                         Button(action: {
                             viewModel.restartGame()
-                            ContentView.showPopUpLoss = false
+                            viewModel.showPopUpLoss = false
                         }, label: {
-                            Text("Reseteja el joc")
+                            Text("Torna a jugar")
                         })
                     }.padding()
                 }
