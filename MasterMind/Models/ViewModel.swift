@@ -26,6 +26,7 @@ class ViewModel: ObservableObject {
         Row(number: 11, color: [.white, .white, .white, .white], indicators: [.black, .black, .black, .black])
      ]
     
+    @Published var justEntered = true
     @Published var showPopUpWin = false
     @Published var showPopUpLoss = false
     
@@ -56,7 +57,7 @@ class ViewModel: ObservableObject {
     
     func ChangeColor(i: Int, j: Int) {
         
-        if(actualTry == i && self.win == false && self.loss == false) {
+        if(actualTry == i && self.win == false && self.loss == false && justEntered == false) {
             let col: Color = combinations[i].color[j]
             
             switch col {
@@ -82,7 +83,7 @@ class ViewModel: ObservableObject {
     
     func checkTry()
     {
-        if(actualTry <= maxTries - 1 && self.win == false && self.loss == false)
+        if(actualTry <= maxTries - 1 && self.win == false && self.loss == false && justEntered == false)
         {
             let actualComb: [Color] = combinations[actualTry].color
             

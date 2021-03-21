@@ -44,6 +44,24 @@ struct ContentView: View {
                 }
             }
             
+            if viewModel.justEntered {
+                ZStack {
+                    Color.white
+                    VStack {
+                        Text("Benvingut a MasterMind!!!")
+                        Spacer()
+                        Button(action: {
+                            viewModel.restartGame()
+                            viewModel.justEntered = false
+                        }, label: {
+                            Text("Comença la partida")
+                        })
+                    }.padding()
+                }
+                .frame(width: 300, height: 100)
+                .cornerRadius(20).shadow(radius: 20)
+            }
+            
             if viewModel.showPopUpWin {
                 ZStack {
                     Color.white
@@ -68,6 +86,23 @@ struct ContentView: View {
                     VStack {
                         Text("Has perdut!!!")
                         Spacer()
+                        Text("La combinació correcte era...")
+                        HStack
+                        {
+                            Circle()
+                                .fill(viewModel.realCombination[0])
+                                .frame(width: 20, height: 20)
+                            Circle()
+                                .fill(viewModel.realCombination[1])
+                                .frame(width: 20, height: 20)
+                            Circle()
+                                .fill(viewModel.realCombination[2])
+                                .frame(width: 20, height: 20)
+                            Circle()
+                                .fill(viewModel.realCombination[3])
+                                .frame(width: 20, height: 20)
+                        }
+                        Spacer()
                         Button(action: {
                             viewModel.restartGame()
                             viewModel.showPopUpLoss = false
@@ -76,12 +111,9 @@ struct ContentView: View {
                         })
                     }.padding()
                 }
-                .frame(width: 200, height: 100)
+                .frame(width: 300, height: 200)
                 .cornerRadius(20).shadow(radius: 20)
             }
-            
-            //self.showPopUpWin = viewModel.getWin()
-            //self.showPopUpLoss = viewModel.getLoss()
         }
     }
 }
