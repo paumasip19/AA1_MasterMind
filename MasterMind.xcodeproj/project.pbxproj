@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB35FF0C260395B2002C31CA /* ColorButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB35FF0B260395B2002C31CA /* ColorButtonView.swift */; };
 		EF11080A25F7EDCF00A0CC32 /* MasterMindApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF11080925F7EDCF00A0CC32 /* MasterMindApp.swift */; };
 		EF11080C25F7EDCF00A0CC32 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF11080B25F7EDCF00A0CC32 /* ContentView.swift */; };
 		EF11080E25F7EDD000A0CC32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF11080D25F7EDD000A0CC32 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CB35FF0B260395B2002C31CA /* ColorButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButtonView.swift; sourceTree = "<group>"; };
 		EF11080625F7EDCF00A0CC32 /* MasterMind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MasterMind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF11080925F7EDCF00A0CC32 /* MasterMindApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterMindApp.swift; sourceTree = "<group>"; };
 		EF11080B25F7EDCF00A0CC32 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,7 +60,6 @@
 			children = (
 				EF11080925F7EDCF00A0CC32 /* MasterMindApp.swift */,
 				EF2C6D4B25F8007D00B1C248 /* Views */,
-				EF11081925F7EF5500A0CC32 /* ViewModel.swift */,
 				EF11081C25F7EF6500A0CC32 /* Models */,
 				EF11080D25F7EDD000A0CC32 /* Assets.xcassets */,
 				EF11081225F7EDD000A0CC32 /* Info.plist */,
@@ -78,6 +79,7 @@
 		EF11081C25F7EF6500A0CC32 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EF11081925F7EF5500A0CC32 /* ViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -87,6 +89,7 @@
 			children = (
 				EF11080B25F7EDCF00A0CC32 /* ContentView.swift */,
 				EF2C6D4C25F800A600B1C248 /* RowView.swift */,
+				CB35FF0B260395B2002C31CA /* ColorButtonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF11080C25F7EDCF00A0CC32 /* ContentView.swift in Sources */,
+				CB35FF0C260395B2002C31CA /* ColorButtonView.swift in Sources */,
 				EF11081A25F7EF5500A0CC32 /* ViewModel.swift in Sources */,
 				EF11080A25F7EDCF00A0CC32 /* MasterMindApp.swift in Sources */,
 				EF2C6D4D25F800A600B1C248 /* RowView.swift in Sources */,
